@@ -138,10 +138,10 @@
     padding: 2rem; border: 1px solid var(--border); background: white;
     position: relative; overflow: hidden;
   }
-  .problem-block::before {
-    content: attr(data-icon);
+  .problem-icon {
     position: absolute; top: 1rem; right: 1.25rem;
-    font-size: 2.5rem; opacity: 0.06;
+    width: 2.5rem; height: 2.5rem; opacity: 0.08;
+    pointer-events: none; color: var(--ink);
   }
   .problem-block h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; }
   .problem-block p { font-size: 0.95rem; color: var(--muted); line-height: 1.8; }
@@ -157,7 +157,7 @@
     cursor: default;
   }
   .cause-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.07); }
-  .cause-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+  .cause-icon { width: 2rem; height: 2rem; margin-bottom: 1rem; display: block; }
   .cause-card h3 { font-size: 1rem; font-weight: 500; margin-bottom: 0.5rem; }
   .cause-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.75; }
   .tag { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.6rem; border: 1px solid; margin-bottom: 0.75rem; }
@@ -251,7 +251,7 @@
   cite { font-size: 0.85rem; color: var(--muted); font-style: normal; }
 
   /* INTERACTIVE QUIZ */
-  .quiz-section { background: var(--ink); color: var(--paper); }
+  section.quiz-section { background: var(--ink); color: var(--paper); }
   .quiz-section h2 { color: var(--paper); }
   .quiz-section .section-num { color: rgba(255,255,255,0.08); }
   .quiz-section .section-label { color: rgba(255,255,255,0.4); }
@@ -351,22 +351,26 @@
   </div>
 
   <div class="problem-grid">
-    <div class="problem-block" data-icon="📰">
+    <div class="problem-block">
+      <svg class="problem-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
       <div class="accent-bar"></div>
       <h3>Fake News</h3>
       <p>Contenido que adopta la apariencia del periodismo legítimo pero transmite información deliberadamente falsa con fines de manipulación política o económica. La falsedad no es un error: es una decisión estratégica (Wardle & Derakhshan, 2017).</p>
     </div>
-    <div class="problem-block" data-icon="🎭">
+    <div class="problem-block">
+      <svg class="problem-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
       <div class="accent-bar teal"></div>
       <h3>Deepfakes</h3>
       <p>Contenido audiovisual generado por inteligencia artificial (GANs) para hacer aparecer a personas en situaciones que nunca ocurrieron. Representan una extensión tecnológica de la difamación con consecuencias jurídicas y psicológicas concretas (Chesney & Citron, 2019).</p>
     </div>
-    <div class="problem-block" data-icon="🌊">
+    <div class="problem-block">
+      <svg class="problem-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
       <div class="accent-bar gold"></div>
       <h3>Infodemia</h3>
       <p>Sobreabundancia de información —tanto veraz como falsa— que dificulta tomar decisiones informadas. El problema no es solo el contenido falso: es el volumen total de información y la incapacidad cognitiva de procesarla críticamente bajo presión (OMS, 2020).</p>
     </div>
-    <div class="problem-block" data-icon="🔄">
+    <div class="problem-block">
+      <svg class="problem-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
       <div class="accent-bar"></div>
       <h3>Contagio Emocional</h3>
       <p>Las emociones se propagan a través del feed. Facebook demostró experimentalmente que manipular el contenido visible puede inducir estados emocionales colectivos sin que los usuarios lo sepan, cuestionando la autonomía emocional de los usuarios (Kramer et al., 2014).</p>
@@ -386,37 +390,37 @@
   <div class="causes-grid">
     <div class="cause-card">
       <div class="tag rust">Tecnológica</div>
-      <div class="cause-icon">⚙️</div>
+      <div class="cause-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
       <h3>Algoritmos de recomendación</h3>
       <p>Diseñados para maximizar el tiempo en pantalla, no la veracidad. Priorizan contenido que genera emociones fuertes —indignación, miedo, sorpresa— sobre el contenido preciso (Pariser, 2011).</p>
     </div>
     <div class="cause-card">
       <div class="tag teal">Económica</div>
-      <div class="cause-icon">💰</div>
+      <div class="cause-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
       <h3>Industria de la desinformación</h3>
       <p>Productores de contenido falso monetizan el tráfico web generado por material sensacionalista. La desinformación es un negocio rentable desvinculado de cualquier responsabilidad editorial.</p>
     </div>
     <div class="cause-card">
       <div class="tag gold">Política</div>
-      <div class="cause-icon">🗳️</div>
+      <div class="cause-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
       <h3>Uso estratégico por actores políticos</h3>
       <p>Las redes sociales ofrecen un canal de bajo costo y alto alcance que elude los filtros del periodismo tradicional. En Costa Rica se ha documentado su uso en procesos electorales (Rodríguez Garita, 2022).</p>
     </div>
     <div class="cause-card">
       <div class="tag rust">Cognitiva</div>
-      <div class="cause-icon">🧠</div>
+      <div class="cause-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></div>
       <h3>Sesgos cognitivos</h3>
       <p>El sesgo de confirmación nos lleva a creer y compartir información que confirma nuestras creencias previas. La velocidad del scroll no favorece el pensamiento crítico ni la verificación.</p>
     </div>
     <div class="cause-card">
       <div class="tag teal">Social</div>
-      <div class="cause-icon">📱</div>
+      <div class="cause-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
       <h3>Baja alfabetización mediática</h3>
       <p>En Costa Rica, la alta dependencia de WhatsApp como fuente noticiosa y la escasa penetración de medios verificados en zonas rurales aumentan la vulnerabilidad (Monge Quesada & Pérez Salas, 2020).</p>
     </div>
     <div class="cause-card">
       <div class="tag gold">Estructural</div>
-      <div class="cause-icon">🔁</div>
+      <div class="cause-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
       <h3>Cámaras de eco</h3>
       <p>La homofilia algorítmica construye entornos donde solo se recibe información que refuerza las propias creencias, haciendo invisible la pluralidad y radicalizando las posiciones (Sunstein, 2017).</p>
     </div>
@@ -434,35 +438,35 @@
   </div>
   <div class="consequence-list">
     <div class="con-item">
-      <div class="con-dot red">🧠</div>
+      <div class="con-dot red"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
       <div class="con-content">
         <h3>Deterioro de la salud mental</h3>
         <p>La investigación empírica documenta asociaciones entre el consumo intensivo de contenido negativo y el incremento de síntomas de ansiedad y depresión, con efectos especialmente pronunciados en jóvenes y adolescentes. Las plataformas diseñadas para maximizar el engagement producen estados emocionales negativos persistentes.</p>
       </div>
     </div>
     <div class="con-item">
-      <div class="con-dot teal">⚖️</div>
+      <div class="con-dot teal"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="3" x2="12" y2="20"/><path d="M6 7l-4 8h8zM18 7l-4 8h8z"/><line x1="5" y1="3" x2="19" y2="3"/></svg></div>
       <div class="con-content">
         <h3>Erosión de la confianza institucional</h3>
         <p>La desinformación actúa como un disolvente sistemático de la confianza social: cuando cualquier fuente resulta sospechosa, proliferan las narrativas conspiracionistas y se debilita la capacidad colectiva de responder a crisis. El "dividendo del mentiroso" hace que incluso grabaciones auténticas puedan descartarse como manipuladas (Chesney & Citron, 2019).</p>
       </div>
     </div>
     <div class="con-item">
-      <div class="con-dot gold">🗺️</div>
+      <div class="con-dot gold"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="3" x2="5" y2="21"/><line x1="12" y1="3" x2="19" y2="21"/><line x1="5" y1="21" x2="19" y2="21"/></svg></div>
       <div class="con-content">
         <h3>Polarización política profunda</h3>
         <p>Los grupos sociales se distancian ideológicamente, reduciendo la disposición al diálogo. Paradójicamente, la exposición a perspectivas opuestas en redes sociales puede incrementar —no reducir— la polarización (Bail et al., 2018), cuestionando las soluciones simplistas basadas en la mera diversificación informativa.</p>
       </div>
     </div>
     <div class="con-item">
-      <div class="con-dot dark">👩‍💼</div>
+      <div class="con-dot dark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="17" y1="8" x2="23" y2="14"/><line x1="23" y1="8" x2="17" y2="14"/></svg></div>
       <div class="con-content">
         <h3>Violencia de género digital</h3>
         <p>Las mujeres en posiciones de visibilidad pública resultan desproporcionadamente afectadas por deepfakes usados como instrumentos de intimidación y control. El contenido sintético produce daños reales y concretos sobre la reputación, seguridad y bienestar psicológico de sus víctimas.</p>
       </div>
     </div>
     <div class="con-item">
-      <div class="con-dot red">📊</div>
+      <div class="con-dot red"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></div>
       <div class="con-content">
         <h3>Reproducción de desigualdades</h3>
         <p>Los daños de la desinformación se distribuyen de manera desigual: adultos mayores, comunidades rurales y poblaciones con menor capital educativo presentan mayor susceptibilidad. La tecnología reproduce y potencia desigualdades preexistentes, convirtiendo la alfabetización mediática en una cuestión de justicia social (Hobbs, 2010).</p>
@@ -505,7 +509,7 @@
   </div>
   <div class="diptych">
     <div class="diptych-panel good">
-      <h3>✓ Buen uso de las redes</h3>
+      <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:0.5rem"><polyline points="20 6 9 17 4 12"/></svg>Buen uso de las redes</h3>
       <ul>
         <li>Verificar noticias en sitios de fact-checking antes de compartir (Doble Check, AFP Factual, Snopes)</li>
         <li>Contrastar la información en al menos 2 fuentes independientes y confiables</li>
@@ -517,7 +521,7 @@
       </ul>
     </div>
     <div class="diptych-panel bad">
-      <h3>✗ Mal uso de las redes</h3>
+      <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:0.5rem"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Mal uso de las redes</h3>
       <ul>
         <li>Compartir noticias sin leerlas ni verificarlas porque refuerzan tus creencias previas</li>
         <li>Tomar decisiones importantes (médicas, electorales, financieras) basadas en información de redes sin verificar</li>
@@ -542,37 +546,37 @@
   </div>
   <div class="resources-grid">
     <a href="https://doblecheckcr.com" target="_blank" class="resource-card">
-      <div class="rtype">🇨🇷 Costa Rica</div>
+      <div class="rtype">Costa Rica</div>
       <h3>Doble Check</h3>
       <p>Organización costarricense de verificación de hechos. Desmiente noticias falsas que circulan en medios nacionales y redes sociales.</p>
       <div class="r-link">Visitar sitio →</div>
     </a>
     <a href="https://factual.afp.com/es" target="_blank" class="resource-card">
-      <div class="rtype">🌎 Internacional</div>
+      <div class="rtype">Internacional</div>
       <h3>AFP Factual</h3>
       <p>Servicio de verificación de la Agencia France-Presse. Cubre América Latina con verificaciones en español.</p>
       <div class="r-link">Visitar sitio →</div>
     </a>
     <a href="https://www.snopes.com" target="_blank" class="resource-card">
-      <div class="rtype">🌐 Global</div>
+      <div class="rtype">Global</div>
       <h3>Snopes</h3>
       <p>Uno de los sitios de fact-checking más antiguos del mundo. Verifica rumores, mitos urbanos y noticias virales.</p>
       <div class="r-link">Visitar sitio →</div>
     </a>
     <a href="https://mediasmart.co.cr" target="_blank" class="resource-card">
-      <div class="rtype">📚 Educación</div>
+      <div class="rtype">Educación</div>
       <h3>MediaSmart Costa Rica</h3>
       <p>Recursos de alfabetización mediática adaptados al contexto costarricense para estudiantes y docentes.</p>
       <div class="r-link">Visitar sitio →</div>
     </a>
     <a href="https://www.who.int/es/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters" target="_blank" class="resource-card">
-      <div class="rtype">🏥 Salud</div>
+      <div class="rtype">Salud</div>
       <h3>OMS: Desmontando mitos</h3>
       <p>La Organización Mundial de la Salud mantiene un recurso actualizado sobre desinformación en salud pública.</p>
       <div class="r-link">Visitar sitio →</div>
     </a>
     <a href="https://repositorio.cepal.org/handle/11362/47000" target="_blank" class="resource-card">
-      <div class="rtype">📄 Investigación</div>
+      <div class="rtype">Investigación</div>
       <h3>CEPAL: Infodemia en ALC</h3>
       <p>Informe académico sobre el impacto de la desinformación en América Latina y el Caribe, marcos regulatorios y brechas de alfabetización.</p>
       <div class="r-link">Leer informe →</div>
@@ -593,28 +597,28 @@
     <div>
       <div class="contact-list">
         <div class="contact-item">
-          <div class="contact-icon">📞</div>
+          <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.36a2 2 0 0 1 2-2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.29 6.29l1.28-.8a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
           <div>
             <h3>CCSS — Salud Mental</h3>
             <p>Para apoyo psicológico relacionado con ansiedad, depresión o efectos del consumo digital.<br><a href="tel:1022">1022</a> — Línea de orientación médica</p>
           </div>
         </div>
         <div class="contact-item">
-          <div class="contact-icon">🆘</div>
+          <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
           <div>
             <h3>Centro de Crisis — CCSS</h3>
             <p>Atención en crisis emocionales. Disponible las 24 horas.<br><a href="tel:800-0226835">800-022-6835</a></p>
           </div>
         </div>
         <div class="contact-item">
-          <div class="contact-icon">🌐</div>
+          <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
           <div>
             <h3>CONARE — Orientación Universitaria</h3>
             <p>Consultas sobre derechos digitales, privacidad y ciberseguridad para estudiantes universitarios.<br><a href="https://www.conare.ac.cr" target="_blank">www.conare.ac.cr</a></p>
           </div>
         </div>
         <div class="contact-item">
-          <div class="contact-icon">👮</div>
+          <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
           <div>
             <h3>OIJ — Delitos Informáticos</h3>
             <p>Para reportar deepfakes, suplantación de identidad o acoso digital.<br><a href="tel:800-8000645">800-800-0645</a></p>
@@ -672,7 +676,7 @@
         <h3>Escanea para compartir<br>este sitio</h3>
         <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--muted);">Comparte InfoVerdad con tus<br>amigos y familia</p>
         <p style="margin-top: 1.5rem; font-size: 0.75rem; color: var(--muted); padding: 0.75rem; background: var(--cream); border-left: 2px solid var(--rust);">
-          💡 <strong>Tip:</strong> Usa una app de QR en tu celular para generar el código real apuntando a la URL de este sitio.
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:0.3rem"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><strong>Tip:</strong> Usa una app de QR en tu celular para generar el código real apuntando a la URL de este sitio.
         </p>
       </div>
     </div>
@@ -682,7 +686,7 @@
 <footer>
   <div>
     <div class="f-logo">Info<span>Verdad</span></div>
-    <p>Sitio informativo desarrollado para el curso Informática y Sociedad<br>Facultad de Ciencias Sociales — 2026</p>
+    <p>Sitio informativo desarrollado para el curso Informática y Sociedad<br>Escuela de Informática, Facultad de Ciencias Exactas y Naturales — 2026</p>
   </div>
   <div>
     <small>Redes Sociales, Desinformación y<br>Contagio Emocional — Etapa 2<br>© 2026</small>
